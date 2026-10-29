@@ -21,4 +21,5 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 # Update runner
 sudo apt update
 # Install vagrant
-sudo apt install -y vagrant="$VAGRANT_VERSION"
+sudo apt install -y vagrant
+vagrant --version
