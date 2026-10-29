@@ -17,8 +17,8 @@ wget --retry-connrefused --waitretry=5 --read-timeout=20 --timeout=15 --tries=5 
 sudo mkdir -p /usr/share/keyrings
 sudo gpg --yes --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg /tmp/hashicorp.gpg
 echo "updating apt..."
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 # Update runner
-sudo apt-get update
+sudo apt update
 # Install vagrant
-sudo apt-get install -y vagrant="$VAGRANT_VERSION"
+sudo apt install -y vagrant="$VAGRANT_VERSION"
