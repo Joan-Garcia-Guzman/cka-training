@@ -8,6 +8,7 @@ This repo has been tested using the following versions of tools
 ```shell
 virtualbox@7.2.22
 vagrant@2.4.9
+ubuntu/noble@24.04
 ```
 
 

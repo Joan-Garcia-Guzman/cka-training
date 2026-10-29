@@ -11,14 +11,14 @@ env:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # Checkout
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       # Install
       - name: Setup Vagrant
-        run: scripts/install_vagrant.sh $VAGRANT_VERSION
+        run: .github/scripts/install_vagrant.sh $VAGRANT_VERSION
       # Validate
       - name: Validate Vagrantfile
         working-directory: infra/local
