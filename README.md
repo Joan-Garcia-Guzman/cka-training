@@ -10,6 +10,7 @@ virtualbox@7.2.22
 vagrant@2.4.9
 ubuntu/noble@24.04
 ```
+Check .github/scripts for easy install scripts
 
 
 # How to use this repository

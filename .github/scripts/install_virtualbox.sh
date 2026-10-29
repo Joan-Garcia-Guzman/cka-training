@@ -20,5 +20,5 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] 
 # Update runner
 sudo apt update
 # Install vagrant
-sudo apt install -y virtualbox="$VB_VERSION"
+sudo apt install -y virtualbox-"$VB_VERSION"="$VB_VERSION-*"
 vboxmanage --version
