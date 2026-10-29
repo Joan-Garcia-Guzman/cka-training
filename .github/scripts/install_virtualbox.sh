@@ -4,6 +4,7 @@ set -o pipefail
 
 # Capture arguments
 VB_VERSION=$1
+VB_MAJOR=$(echo "$VB_VERSION" | cut -d. -f1-2)
 
 if [ -z "$VB_VERSION" ]; then
     echo "Error: You must provide the virtualbox version to install as an argument."
@@ -20,5 +21,5 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] 
 # Update runner
 sudo apt update
 # Install vagrant
-sudo apt install -y virtualbox-"$VB_VERSION"="$VB_VERSION-*"
+sudo apt install -y virtualbox-"$VB_MAJOR"="$VB_VERSION-*"
 vboxmanage --version
