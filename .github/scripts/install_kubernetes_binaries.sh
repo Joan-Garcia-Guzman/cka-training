@@ -16,12 +16,14 @@ kubectl version --client
 # Install using apt (Uncomment the block)
 #sudo apt-get update
 #sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+# sudo mkdir -p -m 755 /etc/apt/keyrings
 #curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.37/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 #sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 #echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.37/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 #sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
 #sudo apt-get update
 #sudo apt-get install -y kubectl
+#sudo apt-mark hold kubelet kubeadm kubectl
 
 # Activate bash autocompletion
 sudo apt-get install bash-completion
