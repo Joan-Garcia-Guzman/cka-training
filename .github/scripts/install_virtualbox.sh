@@ -1,4 +1,3 @@
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 # Fail if errors
 set -e
 set -o pipefail
