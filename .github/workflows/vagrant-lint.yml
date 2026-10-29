@@ -7,7 +7,7 @@ on:
     branches: *branch_patterns
 
 env:
-  VAGRANT_VERSION: "2.4.9"
+  VAGRANT_VERSION: "2.4.3"  # CICD runner limits
 
 jobs:
   validate:
