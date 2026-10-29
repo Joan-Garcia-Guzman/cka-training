@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  # Sistema operativo base (Ubuntu 22.04 LTS)
+  config.vm.box = "ubuntu/jammy64"
+  
+  # -------------------------------------------------------------
+  # NODO MAESTRO (k8s-master)
+  # -------------------------------------------------------------
+  config.vm.define "k8s-master" do |master|
+    master.vm.hostname = "k8s-master"
+    master.vm.network "private_network", ip: "192.168.56.10"
+    
+    master.vm.provider "virtualbox" do |vb|
+      vb.name = "k8s-master"
+      vb.memory = 2048 # Mínimo requerido por kubeadm
+      vb.cpus = 2      # Mínimo requerido por kubeadm
+    end
+  end
+
+  # -------------------------------------------------------------
+  # NODOS TRABAJADORES (k8s-worker-1 y k8s-worker-2)
+  # -------------------------------------------------------------
+  (1..2).each do |i|
+    config.vm.define "k8s-worker-#{i}" do |worker|
+      worker.vm.hostname = "k8s-worker-#{i}"
+      worker.vm.network "private_network", ip: "192.168.56.#{10 + i}"
+      
+      worker.vm.provider "virtualbox" do |vb|
+        vb.name = "k8s-worker-#{i}"
+        vb.memory = 1536 # Ajustable según la RAM de tu equipo host
+        worker.vm.provider "virtualbox" do |vb|
+          vb.cpus = 1
+        end
+      end
+    end
+  end
+
+end
