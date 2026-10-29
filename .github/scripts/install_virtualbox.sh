@@ -14,9 +14,9 @@ fi
 # Config Hashicorp repo
 echo "retrieving Hashicorp keyring..."
 #curl -fsSL https://hashicorp.com | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-wget --retry-connrefused --waitretry=5 --read-timeout=20 --timeout=15 --tries=5 -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+wget --retry-connrefused --waitretry=5 --read-timeout=20 --timeout=15 --tries=5 -q https://virtualbox.org -O- | sudo gpg --dearmor -o /etc/apt/keyrings/virtualbox.gpg
 echo "updating apt..."
-sudo add-apt-repository "deb [arch=amd64] https://virtualbox.org $(lsb_release -sc) contrib"
+sudo add-apt-repository "deb [arch=amd64 signed-by=/etc/apt/keyrings/virtualbox.gpg] https://virtualbox.org $(lsb_release -sc) contrib"
 # Update runner
 sudo apt update
 # Install vagrant
