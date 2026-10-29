@@ -12,7 +12,9 @@ fi
 
 # Config Hashicorp repo
 echo "retrieving Hashicorp keyring..."
-curl -fsSL https://virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/oracle-virtualbox-2016.gpg
+sudo mkdir -p /usr/share/keyrings
+#curl -fsSL https://virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/oracle-virtualbox-2016.gpg
+wget --retry-connrefused --waitretry=5 --read-timeout=20 --timeout=15 --tries=5 -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo gpg --dearmor --yes -o /usr/share/keyrings/oracle-virtualbox-2016.gpg
 echo "updating apt..."
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 # Update runner
