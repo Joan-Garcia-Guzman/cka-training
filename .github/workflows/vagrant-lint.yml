@@ -20,4 +20,5 @@ jobs:
           version: "2.4.9"
       # Validate
       - name: Validate Vagrantfile
+        working-directory: infra/local
         run: vagrant validate
