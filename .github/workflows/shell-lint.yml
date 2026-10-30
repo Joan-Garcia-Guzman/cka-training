@@ -1,0 +1,21 @@
+name: Shell Lint
+
+on:
+  push:
+    branches: &branch_patterns ["main", "feat*"]
+  pull_request:
+    branches: *branch_patterns
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      # Checkout
+      - name: Checkout code
+        uses: actions/checkout@v5
+      # Install ShellCheck
+      - name: Setup ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+      # Validate
+      - name: Validate Shell Scripts
+        run: find . -name "*.sh" -exec shellcheck {} +

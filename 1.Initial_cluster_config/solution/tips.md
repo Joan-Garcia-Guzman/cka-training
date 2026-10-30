@@ -1,0 +1,4 @@
+- look for "install kubeadm" in kubernetes.io
+- swap, ipforward and containerd may be already set up in the exam
+- make sure to enable overlay and br_netfilter for CNI plugin to work
+- for CNI plugin: if using flannel, pod-network-cidr=10.244.0.0/16 // if using calico pod-network-cidr=192.168.0.0/16
