@@ -1,3 +1,4 @@
+#!/bin/bash
 # Download binary
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
@@ -27,10 +28,12 @@ kubectl version --client
 
 # Activate bash autocompletion
 sudo apt-get install bash-completion
+# shellcheck disable=SC1091
 source /usr/share/bash-completion/bash_completion
 type _init_completion # If this prints something its working
 
 # Activate bash kubectl autocompletion
+# shellcheck disable=SC2129
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 # Create bash alias for kubectl
@@ -38,4 +41,5 @@ echo 'alias k=kubectl' >>~/.bashrc
 echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
 
 # Reload bash session
+# shellcheck disable=SC1090
 source ~/.bashrc

@@ -1,3 +1,4 @@
+#!/bin/bash
 ## Containerd
 
 # Activate modules

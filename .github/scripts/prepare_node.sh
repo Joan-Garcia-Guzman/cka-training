@@ -1,3 +1,4 @@
+#!/bin/bash
 # Deactivate swap
 sudo swapoff -a
 

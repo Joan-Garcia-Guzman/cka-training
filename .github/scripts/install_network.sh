@@ -1,3 +1,4 @@
+#!/bin/bash
 # Update bridge network components
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables = 1
