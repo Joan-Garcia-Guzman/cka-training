@@ -110,7 +110,7 @@ kubectl get pods -n kube-system
 
 ## Summary
 - Prepare the node (swap off && ip_forward)
-- Install networking components
+- Install networking components (may be optional)
 - Install container runtime
 - Install kubernetes binaries
 - Initialize cluster
